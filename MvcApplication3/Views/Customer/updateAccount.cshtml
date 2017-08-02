@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_clayout.cshtml";
+
+}
+
+<div class="register">
+
+    @{
+        var name = Session["Name"];
+        var email = Session["Email"];
+        
+        
+    }
+    <form action="~/Customer/Update" method="post">
+
+      
+        <input name="name" placeholder="Name" type="text" required="" value=@name />
+        <input name="email" placeholder="Email Address" type="text" value=@email required="">
+        <input name="password" placeholder= "New Password" type="password" required="">
+
+
+        <div class="update">
+            <input type="submit" value="Update" />
+        </div>
+    </form>
+
+    </body>
+    </html>
+

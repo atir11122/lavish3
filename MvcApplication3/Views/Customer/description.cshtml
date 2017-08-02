@@ -1,0 +1,47 @@
+﻿@model List<MvcApplication3.Models.Product>
+
+@{
+    Layout = "~/Views/Shared/_clayout.cshtml";
+    ViewBag.Title = "description";
+    var v = Session["pid"];
+}
+
+<h2>Description</h2>
+<div align="center">
+    @foreach (var item in Model)
+    {
+        if (item.Id == (Int32)v)
+        {
+            <img src="@Url.Content(item.Src)" alt=" ">
+            <h4>
+                @item.Category
+            </h4>
+            <p3>Price </p3>
+            <p2>@item.Price</p2>
+            <p>
+                @item.Desc
+            </p>
+
+
+            <div class="color-quality">
+                <ul>
+                    <li><a href="#"><span></span>Red</a></li>
+                    <li><a href="#" class="brown"><span></span>Yellow</a></li>
+                    <li><a href="#" class="purple"><span></span>Purple</a></li>
+                    <li><a href="#" class="gray"><span></span>Violet</a></li>
+                </ul>
+            </div>
+
+
+            @Html.ActionLink("Add to Cart", "AddCart", "Customer", new { id = item.Id }, null)
+
+
+        }
+
+    }
+
+
+
+</div>
+
+                  

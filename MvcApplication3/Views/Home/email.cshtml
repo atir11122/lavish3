@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "AboutUs";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body>
+    @{
+        try
+        {
+            string remail = Session["remail"].ToString(); 
+            string pass = Session["pass"].ToString(); 
+            WebMail.SmtpServer = "smtp.gmail.com";
+            WebMail.SmtpPort = 25;
+            WebMail.EnableSsl = true;
+            WebMail.SmtpUseDefaultCredentials = true;
+            WebMail.UserName = "lavishoutfits1@gmail.com";
+            WebMail.Password = "Pakistan123";
+            WebMail.From = "shk.atir@gmail.com";
+            WebMail.Send(remail, "Password Notification",
+                    "Your Password is :" + pass  );
+            
+            @:<b>Your password has been successfully sent ..</b>
+            @:</br>
+            @:<b>Kindly check your mail ..</b>
+             @:</br>
+            <a href="~/Home/Index">Home</a>
+            
+
+            
+            
+            
+            
+        }
+        catch (Exception)
+        {
+            @:<b>Sorry - we couldn't send the email to confirm your RSVP.</b>
+       }
+    }
+    <div>
+    </div>
+</body>
+</html>

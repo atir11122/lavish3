@@ -1,0 +1,71 @@
+.pageTitle{
+    background-color:#eccd19;
+    margin-top: 15px;
+    border-radius: 4px;
+    box-shadow: 1px 2px 9px 0px #946d2b;
+}
+.pageTitle h1{
+    font-size: 40px;
+    font-weight: bold;
+    padding: 15px 0px;
+    color: whitesmoke;
+}
+.form-wrapper{
+    background-color: #fffaca;
+    padding: 50px;
+    margin: 25px auto;
+    border-radius: 4px;
+    box-shadow: 1px 2px 9px 0px #c1a43c;
+}
+.form-wrapper .panel{
+    padding: 15px 30px;
+    background-color: #fff7ac;
+    margin-bottom: 5%;
+    box-shadow: 1px 2px 9px 0px #946d2b;
+}
+.form-wrapper .panel h1{
+    font-size: 25px;
+    font-weight: bold;
+    color: gray;
+}
+.form-wrapper .panel form{
+    
+}
+.form-wrapper .panel form .form-group{
+    
+}
+.form-wrapper .panel form .form-group label{
+    color: #525050;
+}
+.form-wrapper .panel form .form-group .form-control{
+    
+}
+.form-wrapper .panel form .addBtn{
+    color: white;
+    background-color: #525050;
+    float: right;
+    font-weight: bold;
+    margin: 10px auto;
+}
+.form-wrapper .panel form .searchButton{
+    float: right;
+}
+.form-wrapper .panel form .searchButton .searchBtn{
+     color: white;
+    font-weight: bold;
+    background-color: #b6b4b4;
+}
+.form-wrapper .panel form .removeBtn{
+    color: white;
+    background-color: #525050;
+    float: right;
+    font-weight: bold;
+    margin: 10px auto;
+}
+.form-wrapper .panel form .updateBtn{
+    color: white;
+    background-color: #525050;
+    float: right;
+    font-weight: bold;
+    margin: 10px auto;
+}

@@ -1,0 +1,96 @@
+﻿@model IEnumerable<MvcApplication3.Models.Product>
+@{
+    ViewBag.Title = "Dresses";
+    Layout = "~/Views/Shared/_layout.cshtml";
+    var cat = (string)Session["type"];
+}
+
+
+
+<!DOCTYPE html>
+<html>
+
+<!-- //header -->
+<!-- banner -->
+<div class="banner1" id="home1">
+    <div class="container">
+        <h2>trendy fashion dresses<span>up to</span> 30% <i>Discount</i></h2>
+    </div>
+</div>
+<!-- //banner -->
+<!-- breadcrumbs -->
+<div class="breadcrumb_dress">
+    <div class="container">
+        <ul>
+            <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+            <li>Dresses</li>
+        </ul>
+    </div>
+</div>
+<!-- //breadcrumbs -->
+<!-- dresses -->
+<div class="dresses">
+    <div class="container">
+        <div class="w3ls_dresses_grids">
+            <div class="agile_ecommerce_tabs">
+
+                @foreach (var item in Model)
+                {
+
+
+                    if (item.Category == @cat)
+                    {
+
+                        <div class="col-md-4 agile_ecommerce_tab_left">
+                            <div class="hs-wrapper">
+                                <img src="@Url.Content(item.Src)" alt=" ">
+
+                                <div class="w3_hs_bottom">
+                                    <ul>
+                                        <li>
+                                            @*<a href="~/Customer/Description" ,   data-toggle="modal" data-target="~/Customer/Description"><span class="glyphicon glyphicon-eye-open" aria-hidden=""></span></a>*@
+                                            @Html.ActionLink("Description", "Description", "Customer", new { id = item.Id }, new { @class = "glyphicon glyphicon-eye-open" })
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <h5><a href="single.html">@item.Category</a></h5>
+                            <div class="simpleCart_shelfItem">
+                                <p><span></span> <i class="item_price">$@item.Price</i></p>
+                                @Html.ActionLink("Add to Cart", "AddCart", "Customer", new { id = item.Id }, null)
+
+                            </div>
+                        </div>
+                    }
+                }
+
+                <div class="clearfix"> </div>
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+<!-- //dresses -->
+<!-- newsletter -->
+<div class="newsletter">
+    <div class="container">
+        <div class="col-md-6 w3agile_newsletter_left">
+            <h3>Newsletter</h3>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
+        </div>
+        <div class="col-md-6 w3agile_newsletter_right">
+            <form action="#" method="post">
+                <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                <input type="submit" value="">
+            </form>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //newsletter -->
+<!-- footer -->
+<!-- //footer -->
+</body>
+</html>

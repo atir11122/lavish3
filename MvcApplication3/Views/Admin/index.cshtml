@@ -1,0 +1,192 @@
+﻿@model IEnumerable<MvcApplication3.Models.Order>
+
+<!DOCTYPE html>
+
+
+<html lang="en-US">
+<head>
+    <title>Admin Panel</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="~/Content/bootstrap.css" rel="stylesheet" >
+    <link type="text/css" href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="~/Content/form.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container pageTitle">
+        <h1 class="text-center">Admin Panel</h1>
+    </div>
+    <div class="clearfix"></div>
+    <div>
+        @{
+            
+            var v = Session["msg"];
+            @v
+            
+            
+
+
+        }
+
+
+    </div>
+    
+    <div class="form-wrapper container">
+        
+    <!--Add-->
+    <div class="col-md-offset-2 col-md-8 panel" id="add">
+        <h1 class="text-center">ADD</h1>
+        <form action="~/Admin/Add" method="Post">
+            <div class="form-group">
+                <label>Price</label>
+                <input type="number" name="price" placeholder="Price..." class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label>Category</label>
+                <input type="text" name="category" placeholder="Category..." class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description" placeholder="Discription..." class="form-control" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>Source</label>
+                <input type="text" name="source" placeholder="Path..." class="form-control" required />
+            </div>
+            
+            <!--Add Button-->
+            <div>
+                <button class="btn addBtn" >ADD</button>
+            </div>
+        </form>
+    </div>
+    
+    <!--Remove-->
+    <div class="col-md-offset-2 col-md-8 panel" id="remove">
+        <!--Title-->
+        <h1 class="text-center">REMOVE</h1>
+        <!--Form-->
+        <form action="~/Admin/Remove" method="Post">
+            <div class="form-group">
+                <label>Product ID</label>
+                <input type="text" name="remove_productID" placeholder="Product ID..." class="form-control" required />
+            </div>
+
+            <!--Add Button-->
+            <div>
+                <button class="btn removeBtn">REMOVE</button>
+            </div>
+        </form>
+    </div>
+    
+    <!--Update-->
+    <div class="col-md-offset-2 col-md-8 panel" id="update">
+        <!--Title-->
+        <h1 class="text-center">UPDATE</h1>
+        <!-- Form -->
+        <form action="~/Admin/Update" method="Post">
+            <div class="form-group">
+                <label>Product ID</label>
+                <input type="text" name="update_productID" placeholder="Product ID..." class="form-control" required />
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="form-group">
+                <label>Price</label>
+                <input type="text" name="price" placeholder="Category..." class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label>Category</label>
+                <input type="text" name="update_category" placeholder="Category..." class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="update_description" placeholder="Discription..." class="form-control" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Source</label>
+                <input type="text" name="update_source" placeholder="Path..." class="form-control" />
+            </div>
+
+            <!--Add Button-->
+            <div>
+                <button class="btn updateBtn">UPDATE</button>
+            </div>
+        </form>
+        </div>
+
+        <form   action="~/Customer/Logout"  >
+            
+
+           
+            <div>
+                <button class="btn updateBtn">Logout</button>
+            </div>
+        </form>
+
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="table">
+        <table class="table-bordered" >
+            <thead>
+                <tr>
+
+                    <th>Id</th>
+                    <th>CID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Products</th>
+                    <th>Total</th>
+
+
+                </tr>
+            </thead>
+          
+
+            @foreach (var item in Model)
+            {
+              
+
+                  
+                    <tr>
+                        <td class="invert">@item.Id</td>
+                        <td class="invert">@item.CID</td>
+                        <td class="invert">@item.Name</td>
+                        <td class="invert">@item.Email</td>
+                        <td class="invert">@item.Mobile</td>
+                        <td class="invert">@item.Address</td>
+                        <td class="invert">@item.AProducts</td>
+                        <td class="invert">@item.Total</td>
+
+
+                    </tr>
+
+
+                }
+
+
+
+
+            
+
+
+   
+        </table>
+
+
+
+
+
+
+
+
+
+    </div>
+    
+</body>
+</html>

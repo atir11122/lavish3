@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Remail";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+
+<head>
+    <title>Password recovery</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="~/Content/bootstrap.css" rel="stylesheet">
+    <link type="text/css" href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" href="~/Content/form.css" rel="stylesheet">
+    <script src="~/Scripts/jquery.min.js"></script>  
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-1.7.1.js"></script>  
+</head>
+<body>
+
+    @*<script>
+        function fun() {
+
+            //$('#d1').remove();
+            $.getJSON('/Home/CheckUname?u=' + $('#t1').val(), function (x) {
+                if (x)
+                    $('#d1').text("User Name not available");
+                else
+                    $('#d1').text("User Name available");
+            });
+        }
+    </script>*@
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function a() {
+            $("#b1").click(function b() {
+                var u = $("#remail").val();
+                $.getJson("/Home/Check?remail=" + u, function c(data) {
+                    if (data) {
+                        $("#result").text("Not available");
+                    }
+                    else {
+                        $("#result").text("available");
+
+                    }
+
+                });
+
+            });
+
+        });
+
+    </script>
+    <div class="col-md-offset-2 col-md-8 panel" id="remove">
+        <!--Title-->
+        <h1 class="text-center">Password recovery</h1>
+        <!--Form-->
+        <form action="~/Home/Email" method="Post">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="remail" placeholder="Please Enter your email address..." class="form-control" required />
+            </div>
+            <div id="result">
+              
+            </div>
+
+            <!--Add Button-->
+            <div>
+                <button id="b12"  class="btn removeBtn" onclick="a()" >Send</button>
+            </div>
+
+        </form>
+
+        <div>
+            <button id="b1"  onclick="a()">Check</button>
+        </div>
+    </div>
+
+
+
+</body>
